@@ -1,5 +1,8 @@
 % https://goo.gl/xsSfDp
-%0 no limit , più il valore sale e più è veloce
+% A value of 0 corresponds to no acceleration limit , 
+% range 0-255
+% At the minimum acceleration setting of 1, the servo output takes about 3 seconds to move smoothly from a target of 1 ms to a target of 2 ms.
+
 function setAcc(port, channel, servo_setting) % all input
    
 % Initialize
