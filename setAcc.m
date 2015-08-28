@@ -1,4 +1,5 @@
 % https://goo.gl/xsSfDp
+%0 no limit , più il valore sale e più è veloce
 function setAcc(port, channel, servo_setting) % all input
    
 % Initialize
@@ -11,7 +12,8 @@ function setAcc(port, channel, servo_setting) % all input
     fopen(ser1);
     
     % Format servo command
-    lower = bin2dec(regexprep(mat2str(fliplr(bitget(6120, 1:7))), '[^\w'']', ''));
+    lower = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 1:7))), '[^\w'']', ''));
+    %lower = bin2dec(regexprep(mat2str(fliplr(bitget(6120, 1:7))), '[^\w'']', ''));
     upper = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 8:14))), '[^\w'']', ''));
 
 % Simple Serial Protocol
