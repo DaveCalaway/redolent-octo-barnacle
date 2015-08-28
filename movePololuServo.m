@@ -1,4 +1,5 @@
 % https://goo.gl/xsSfDp
+% accetta input 4000-8000
 function movePololuServo(port, channel, servo_setting) % all input
    
 % Initialize
