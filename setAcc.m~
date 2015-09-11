@@ -1,5 +1,9 @@
-% accetta input 4000-8000
-function movePololuServo(port, channel, servo_setting) % all input
+% https://goo.gl/xsSfDp
+% A value of 0 corresponds to no acceleration limit , 
+% range 0-255
+% At the minimum acceleration setting of 1, the servo output takes about 3 seconds to move smoothly from a target of 1 ms to a target of 2 ms.
+
+function setAcc(port, channel, servo_setting) % all input
    
 % Initialize
     ser1 = serial(port);
@@ -12,12 +16,12 @@ function movePololuServo(port, channel, servo_setting) % all input
     
     % Format servo command
     lower = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 1:7))), '[^\w'']', ''));
-
+    %lower = bin2dec(regexprep(mat2str(fliplr(bitget(6120, 1:7))), '[^\w'']', ''));
     upper = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 8:14))), '[^\w'']', ''));
 
 % Simple Serial Protocol
-    % 0x84 = 132 = move servo
-    command = [132, channel, lower, upper];
+    % 0x89 = 137 = set speed
+    command = [137, channel, lower, upper];
     
 % Send the command
     fwrite(ser1, command);

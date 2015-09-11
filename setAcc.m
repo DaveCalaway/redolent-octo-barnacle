@@ -1,4 +1,3 @@
-% https://goo.gl/xsSfDp
 % A value of 0 corresponds to no acceleration limit , 
 % range 0-255
 % At the minimum acceleration setting of 1, the servo output takes about 3 seconds to move smoothly from a target of 1 ms to a target of 2 ms.
@@ -16,7 +15,7 @@ function setAcc(port, channel, servo_setting) % all input
     
     % Format servo command
     lower = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 1:7))), '[^\w'']', ''));
-    %lower = bin2dec(regexprep(mat2str(fliplr(bitget(6120, 1:7))), '[^\w'']', ''));
+    
     upper = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 8:14))), '[^\w'']', ''));
 
 % Simple Serial Protocol

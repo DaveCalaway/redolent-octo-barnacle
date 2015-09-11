@@ -1,4 +1,3 @@
-% https://goo.gl/xsSfDp
 % (0.25 μs * x) / (10 ms)
 % A speed of 0 makes the speed unlimited
 % example: x=4 --> 100.00 μs/s or 0.1 ms/s
@@ -15,7 +14,7 @@ function setSpeed(port, channel, servo_setting) % all input
     
     % Format servo command
     lower = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 1:7))), '[^\w'']', ''));
-    %lower = bin2dec(regexprep(mat2str(fliplr(bitget(6120, 1:7))), '[^\w'']', ''));
+    
     upper = bin2dec(regexprep(mat2str(fliplr(bitget(servo_setting, 8:14))), '[^\w'']', ''));
 
 % Simple Serial Protocol
